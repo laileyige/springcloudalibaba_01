@@ -8,6 +8,10 @@
         <module>stock</module>
         <module>order_nacos</module>
         <module>stock_nacos</module>
+        <module>order_feign</module>
+        <module>order_sentinel</module>
+        <module>order_seata</module>
+        <module>stock_seata</module>
     </modules>
     <!--parent 一般使用公司自己的项目版本管理，所以springboot依赖继承放在dependencyManagement下，同样可以继承-->
     <!--<parent>
@@ -36,6 +40,13 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-parent</artifactId>
                 <version>2.3.2.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Hoxton.SR12</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

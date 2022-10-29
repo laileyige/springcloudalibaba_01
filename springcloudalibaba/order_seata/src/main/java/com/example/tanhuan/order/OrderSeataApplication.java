@@ -15,9 +15,9 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 @EnableDiscoveryClient
 @RibbonClients(value = {@RibbonClient(name = "stock-service",configuration = RandomIruleConfig.class)})
-class OrderApplication {
+class OrderSeataApplication {
     public static void main(String[] args) {
-        SpringApplication.run(OrderApplication.class,args);
+        SpringApplication.run(OrderSeataApplication.class,args);
     }
 
     @Bean

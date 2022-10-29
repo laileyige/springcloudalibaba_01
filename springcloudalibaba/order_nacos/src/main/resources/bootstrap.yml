@@ -1,0 +1,21 @@
+server:
+  port: 8020
+spring:
+  application:
+    name: order-service
+  cloud:
+    nacos:
+      username: nacos
+      password: nacos
+      config:
+        namespace: nacos
+        server-addr: 127.0.0.1:8847
+        file-extension: yaml  #扩展文件名
+        shared-configs:
+          - data-id: com.common.config.yaml
+            refresh: true
+#        extension-configs: 优先级 order-service>extension>shared,会形成覆盖
+      discovery:
+        username: nacos
+        password: nacos
+        namespace: nacos
