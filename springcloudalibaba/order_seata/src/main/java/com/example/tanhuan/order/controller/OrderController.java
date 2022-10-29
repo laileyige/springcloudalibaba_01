@@ -41,6 +41,7 @@ public class OrderController {
         orderService.addOrder(order);
         String forObject = stockService.remveproduct();
         int i=1/0;
+        System.out.println("hello");
         return "下单成功"+forObject+userName+userAge+userAddr;
     }
 
