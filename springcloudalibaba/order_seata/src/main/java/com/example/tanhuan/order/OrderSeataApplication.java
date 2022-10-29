@@ -1,6 +1,7 @@
 package com.example.tanhuan.order;
 
 import com.example.tanhuan.ribbon.RandomIruleConfig;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,6 +16,7 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 @EnableDiscoveryClient
 @RibbonClients(value = {@RibbonClient(name = "stock-service",configuration = RandomIruleConfig.class)})
+@MapperScan("com.example.tanhuan.order.mapper")
 class OrderSeataApplication {
     public static void main(String[] args) {
         SpringApplication.run(OrderSeataApplication.class,args);
