@@ -15,6 +15,7 @@ import org.springframework.stereotype.Repository;
 public interface OrderMapper extends BaseMapper<Order> {
 
     void insertOrder(Order order);
+
 }
 
 
