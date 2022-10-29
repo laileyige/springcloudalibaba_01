@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.example.tanhuan.stock.pojo.Stock;
 import com.example.tanhuan.stock.service.StockService;
 import com.example.tanhuan.stock.mapper.StockMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -14,7 +15,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class StockServiceImpl extends ServiceImpl<StockMapper, Stock>
     implements StockService{
-
+    @Autowired
+    StockMapper stockMapper;
+    public void insertStock(Stock stock) {
+        stockMapper.insertStock(stock);
+    }
 }
 
 

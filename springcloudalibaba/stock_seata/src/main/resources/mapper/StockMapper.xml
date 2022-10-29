@@ -16,4 +16,8 @@
         stock_id,stock_num,stock_name,
         status,flag
     </sql>
+
+    <insert id="insertStock" parameterType="com.example.tanhuan.stock.pojo.Stock">
+        insert into stock(stock_num,stock_name) values (#{stockNum},#{stockName})
+    </insert>
 </mapper>

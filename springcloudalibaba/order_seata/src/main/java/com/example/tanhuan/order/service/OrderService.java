@@ -11,4 +11,5 @@ import com.example.tanhuan.order.pojo.Order;
 */
 public interface OrderService extends IService<Order> {
 
+    void addOrder(Order order);
 }

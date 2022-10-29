@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 */
 @Repository
 public interface StockMapper extends BaseMapper<Stock> {
-
+    void insertStock(Stock stock);
 }
 
 

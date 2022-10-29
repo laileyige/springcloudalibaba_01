@@ -1,11 +1,14 @@
 package com.example.tanhuan.order.service.impl;
 
 
+import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.example.tanhuan.order.pojo.Order;
 import com.example.tanhuan.order.service.OrderService;
 import com.example.tanhuan.order.mapper.OrderMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
 * @author 86152
@@ -15,7 +18,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order>
     implements OrderService{
+    @Autowired
+    OrderMapper orderMapper;
 
+    @Transactional
+    public void addOrder(Order order) {
+        orderMapper.insertOrder(order);
+    }
 }
 
 

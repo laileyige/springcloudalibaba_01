@@ -5,6 +5,7 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
+import com.baomidou.mybatisplus.enums.IdType;
 import lombok.Data;
 
 /**
@@ -17,7 +18,7 @@ public class Order implements Serializable {
     /**
      * 订单id
      */
-    @TableId
+    @TableId(value = "order_id",type = IdType.AUTO)
     private Integer orderId;
 
     /**

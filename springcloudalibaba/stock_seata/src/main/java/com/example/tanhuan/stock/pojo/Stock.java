@@ -6,6 +6,7 @@ import java.io.Serializable;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
+import com.baomidou.mybatisplus.enums.IdType;
 import lombok.Data;
 
 /**
@@ -18,7 +19,7 @@ public class Stock implements Serializable {
     /**
      * 订单id
      */
-    @TableId
+    @TableId(type = IdType.AUTO)
     private Integer stockId;
 
     /**
@@ -43,4 +44,11 @@ public class Stock implements Serializable {
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
+
+    public Stock(String stockNum, String stockName, Integer status, String flag) {
+        this.stockNum = stockNum;
+        this.stockName = stockName;
+        this.status = status;
+        this.flag = flag;
+    }
 }

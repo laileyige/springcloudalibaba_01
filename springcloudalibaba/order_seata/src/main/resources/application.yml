@@ -1,6 +1,7 @@
+
 spring:
   application:
-    name: order-seata
+    name: order-seata-service
   datasource:
     druid:
       username: root
@@ -19,10 +20,13 @@ mybatis-plus:
     map-underscore-to-camel-case: true
     #sql执行日志
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-  global-config:
-    db-config:
+
+#  global-config:
       #设置全局表名前缀匹配实体类，例tableName=t_user,pojoName=user,不会出现找不到表的问题
       #或者使用@TableName在实体类上也可以
-      table-prefix: t_
+#      table-prefix: t_
       #数据库id主键自增
-      id-type: auto
+  mapper-locations: classpath:mapper/*.xml
+#      id-type: auto
+server:
+  port: 6060

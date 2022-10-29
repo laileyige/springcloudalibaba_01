@@ -10,4 +10,5 @@ import com.example.tanhuan.stock.pojo.Stock;
 */
 public interface StockService extends IService<Stock> {
 
+    void insertStock(Stock stock);
 }

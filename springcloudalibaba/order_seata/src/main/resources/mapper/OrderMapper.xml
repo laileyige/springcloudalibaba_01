@@ -17,4 +17,8 @@
         order_id,order_code,order_num,
         order_name,status,flag
     </sql>
+
+    <insert id="insertOrder" parameterType="com.example.tanhuan.order.pojo.Order">
+        insert into `order`(order_num,order_name) values (#{orderNum},#{orderName})
+    </insert>
 </mapper>
