@@ -12,10 +12,12 @@
         <module>order_sentinel</module>
         <module>order_seata</module>
         <module>stock_seata</module>
+        <module>gateway</module>
     </modules>
     <!--parent 一般使用公司自己的项目版本管理，所以springboot依赖继承放在dependencyManagement下，同样可以继承-->
     <!--<parent>
-
+        <groupId>com.example.tanhuan</groupId>
+        <artifactId></artifactId>
     </parent>-->
     <groupId>com.example.tanhuan</groupId>
     <artifactId>springcloudalibaba</artifactId>

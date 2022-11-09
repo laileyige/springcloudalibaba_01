@@ -30,3 +30,26 @@ mybatis-plus:
 #      id-type: auto
 server:
   port: 6060
+#告诉客户端怎么访问nacos上的seata服务的注册以及配置
+seata:
+  registry:
+    type: nacos
+    nacos:
+      username: nacos
+      password: nacos
+      namespace: dev
+      server-addr: 127.0.0.1:8847
+      application: seata-server
+  config:
+    type: nacos
+    nacos:
+      username: nacos
+      password: nacos
+      namespace: dev
+      server-addr: 127.0.0.1:8847
+  tx-service-group: local  #切记与配置文件中的分组名称一致
+#rocketmq配置
+rocketmq:
+  name-server: 127.0.0.1:9876
+  producer:
+    group: producer_1

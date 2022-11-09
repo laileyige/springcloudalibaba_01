@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.example.tanhuan.order.pojo.Order;
 import com.example.tanhuan.order.service.OrderService;
 import com.example.tanhuan.order.mapper.OrderMapper;
+import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,7 +22,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order>
     @Autowired
     OrderMapper orderMapper;
 
-    @Transactional
+    @GlobalTransactional
     public void addOrder(Order order) {
         orderMapper.insertOrder(order);
     }

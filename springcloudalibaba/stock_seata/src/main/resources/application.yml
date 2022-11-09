@@ -21,3 +21,27 @@ mybatis-plus:
   mapper-locations: classpath:mapper/*.xml
 server:
   port: 6061
+#告诉客户端怎么访问nacos上的seata服务的注册以及配置
+seata:
+  registry:
+    type: nacos
+    nacos:
+      username: nacos
+      password: nacos
+      namespace: dev
+      server-addr: 127.0.0.1:8847
+      application: seata-server
+  config:
+    type: nacos
+    nacos:
+      username: nacos
+      password: nacos
+      namespace: dev
+      server-addr: 127.0.0.1:8847
+  tx-service-group: local
+
+rocketmq:
+  name-server: 127.0.0.1:9876
+  consumer:
+    group: consumer_1
+
