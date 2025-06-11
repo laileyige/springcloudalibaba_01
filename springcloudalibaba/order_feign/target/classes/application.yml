@@ -1,0 +1,20 @@
+server:
+  port: 8031
+spring:
+  application:
+    name: order-service
+  #服务名称，将被nacos识别
+#nacos基本配置,注册中心服务密码账号
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8847
+        username: nacos
+        password: nacos
+        namespace: nacos
+#springboot日志默认级别为info（小范围），所以这里要改为debug（大范围）
+logging:
+  level: #如果在这里配置就是全局配置，日志量会非常庞大，所以需要指定包
+    com.example.tanhuan.order.feign: debug
+#配置文件配置日志
+

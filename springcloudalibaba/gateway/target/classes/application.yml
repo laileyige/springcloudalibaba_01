@@ -1,0 +1,41 @@
+server:
+  port: 8070
+spring:
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]': #允许跨域访问的资源，，这里/**代表所有资源
+            allowedOrigins: "http://127.0.0.1:8081"  #允许跨域来源，也就是前端的负载地址
+            allowedMethods:  #允许访问的请求方式
+              - Get
+              - Post
+      routes:
+        - id: order-route  #id,路由的唯一标识，路由到order，使用过程中好像没发现有啥用
+          uri: lb://order-seata-service   #继承nacos，通过nacos访问相关服务，lb代表loadbalencer负载均衡策略
+          #断言，符合断言进行转发，也是集合，可以设置多个断言
+          predicates:
+            - Path=/order-server/**   #只有根路径是order-server才会放行
+          #过滤器，过滤掉多余的路径，使其转发的真实url能匹配到order服务真实的接口
+          #localhost:8060/order/add   由于现在根路径会多一个order-server,不匹配真实的order服务，过滤器过滤掉该根路径即可
+          filters:
+            - StripPrefix=1  #过滤前缀，也就是根路径order-server,使其转发之后能真实匹配order服务接口
+        - id: stock-route
+          uri: lb://stock-seata-service
+          predicates:
+            - Path=/stock-server/**
+          filters:
+            - StripPrefix=1
+    nacos:
+      discovery:
+        namespace: nacos
+        server-addr: 127.0.0.1:8847
+        username: nacos
+        password: nacos
+      #由于nacos配置了权限，这里的访问一定得写上nacos账号密码
+      username: nacos
+      password: nacos
+  application:
+    name: gateway-service
+
+

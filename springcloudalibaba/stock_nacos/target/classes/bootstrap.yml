@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: order-nacosconfig
+  cloud:
+    nacos:
+      config:
+        namespace: nacos
+      username: nacos
+      password: nacos
